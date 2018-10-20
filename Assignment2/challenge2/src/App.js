@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import validation from './validationcomponent/validation';
+import Validation from './validationcomponent/validation';
 
 class App extends Component {
 
@@ -21,9 +21,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].ParagraghText}></input>
-      <validation  ParagraphLength = {this.state.Paragraph[0].length}/>
-      <p>{this.state.Paragraph[0].ParagraghText}</p>
+        <p>{this.state.Paragraph[0].length}</p>
+        <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].ParagraghText}></input>
+        <p>{this.state.Paragraph[0].ParagraghText}</p>
+        <Validation paragraphlength={this.state.Paragraph[0].length}></Validation>
       </div>
     );
   }
