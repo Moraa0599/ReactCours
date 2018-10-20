@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import validation from './validationcomponent/validation';
 
 class App extends Component {
 
   state = {
-    lengthP:[
-      {ParagraghLengh: 0}
+    Paragraph:[
+      {ParagraghText: "" , length: 0}
     ]
   }
 
   changelistnerHandler = (event) => {
-    const textLength = event.target.value.length;
     this.setState ({
-      lengthP: [
-        {ParagraghLengh:event.target.value}
+      Paragraph: [
+        {ParagraghText:event.target.value , length:event.target.value.length}
       ]
     })
   }
@@ -21,8 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <input onChange={this.changelistnerHandler} value={this.state.lengthP[0].ParagraghLengh}></input>
-      <p>{this.state.lengthP[0].ParagraghLengh}</p>
+      <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].ParagraghText}></input>
+      <validation  ParagraphLength = {this.state.Paragraph[0].length}/>
+      <p>{this.state.Paragraph[0].ParagraghText}</p>
       </div>
     );
   }
