@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Validation from './validationcomponent/validation';
+import Char from './charComponent/charComponent';
 
 class App extends Component {
 
@@ -18,6 +19,12 @@ class App extends Component {
     })
   }
 
+  deleteHandler = (paragraphIndex) => {
+      const letter = this.state.Paragraph[0].length;
+      
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -25,6 +32,7 @@ class App extends Component {
         <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].ParagraghText}></input>
         <p>{this.state.Paragraph[0].ParagraghText}</p>
         <Validation paragraphlength={this.state.Paragraph[0].length}></Validation>
+        <Char letter = {this.state.Paragraph[0].ParagraghText}/>
       </div>
     );
   }
