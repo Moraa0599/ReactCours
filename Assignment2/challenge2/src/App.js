@@ -6,31 +6,36 @@ import Char from './charComponent/charComponent';
 class App extends Component {
 
   state = {
-    Paragraph:[
-      {Text: "" }
-    ]
+    Paragraph:''
   }
 
   changelistnerHandler = (event) => {
-    this.setState ({
-      Paragraph: [
-        {Text:event.target.value}
-      ]
-    })
+    this.setState ({Paragraph:event.target.value});
   }
 
-  deleteHandler = (paragraphIndex) => {
-      
+  deleteCharHandler = (index) => {
+    const text = this.state.Paragraph.split('');
+    text.splice(index,1);
+    const updatedText = text.join('');
+    this.setState({Paragraph:updatedText});
   }
+
 
   render() {
+    const letterArray = this.state.Paragraph.split('').map((letter, index ) => {
+          return <Char 
+           letter={letter}
+            key={index}
+            click={() => this.deleteCharHandler(index)}/>;
+      });
+
     return (
       <div className="App">
-        <p>{this.state.Paragraph[0].Text.length}</p>
-        <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].Text}></input>
-        <p>{this.state.Paragraph[0].Text}</p>
-        <Validation paragraphlength={this.state.Paragraph[0].Text.length}></Validation>
-        <Char />
+        <p>{this.state.Paragraph.length}</p>
+        <input onChange={this.changelistnerHandler} value={this.state.Paragraph}></input>
+        <p>{this.state.Paragraph}</p>
+        <Validation paragraphlength={this.state.Paragraph.length}></Validation>
+        {letterArray}
       </div>
     );
   }

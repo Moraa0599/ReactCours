@@ -10,8 +10,8 @@ const char = (props) => {
 
     }
     return (
-        <div style= {inlineBox}>
-            onClick = {};
+        <div style= {inlineBox} onClick={props.click}>
+            {props.letter} 
             
         </div>
     )
