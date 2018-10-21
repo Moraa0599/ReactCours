@@ -4,14 +4,14 @@ const char = (props) => {
     const inlineBox = {
         display: 'inline-block',
         padding: '16px',
-        align: 'center',
+        textAlign: 'center',
         margin: '16px',
         border: '1px solid black'
 
     }
     return (
         <div style= {inlineBox}>
-            onClick = {props.letter};
+            onClick = {};
             
         </div>
     )

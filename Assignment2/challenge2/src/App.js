@@ -7,32 +7,30 @@ class App extends Component {
 
   state = {
     Paragraph:[
-      {ParagraghText: "" , length: 0}
+      {Text: "" }
     ]
   }
 
   changelistnerHandler = (event) => {
     this.setState ({
       Paragraph: [
-        {ParagraghText:event.target.value , length:event.target.value.length}
+        {Text:event.target.value}
       ]
     })
   }
 
   deleteHandler = (paragraphIndex) => {
-      const letter = this.state.Paragraph[0].length;
       
   }
-
 
   render() {
     return (
       <div className="App">
-        <p>{this.state.Paragraph[0].length}</p>
-        <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].ParagraghText}></input>
-        <p>{this.state.Paragraph[0].ParagraghText}</p>
-        <Validation paragraphlength={this.state.Paragraph[0].length}></Validation>
-        <Char letter = {this.state.Paragraph[0].ParagraghText}/>
+        <p>{this.state.Paragraph[0].Text.length}</p>
+        <input onChange={this.changelistnerHandler} value={this.state.Paragraph[0].Text}></input>
+        <p>{this.state.Paragraph[0].Text}</p>
+        <Validation paragraphlength={this.state.Paragraph[0].Text.length}></Validation>
+        <Char />
       </div>
     );
   }
