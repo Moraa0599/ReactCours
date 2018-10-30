@@ -9,7 +9,7 @@ import classes from './layout';
 const layout = (props) => (
     <Aux>
         <div>Toolbar,SideDrawer, backdrop</div>
-        <main ClassName={classes.content}>
+        <main className={classes.content}>
             {props.children}
         </main>
     </Aux>
